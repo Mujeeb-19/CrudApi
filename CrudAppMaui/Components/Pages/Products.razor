@@ -1,0 +1,117 @@
+﻿@page "/"
+@page "/products"
+@using CrudAppMaui.Models
+@using System.Net.Http.Json
+@inject HttpClient Http
+@inject NavigationManager Navigation
+<h3>Products</h3>
+
+<!-- Add Product Form -->
+<div class="bg-light p-3 mb-3 rounded">
+    <h4>Add New Product</h4>
+
+    <div class="mb-2">
+        <input class="form-control"        
+        @bind="newProduct.Name"
+        placeholder="Name" />
+    </div>
+
+    <div class="mb-2">
+        <input class="form-control"        
+        @bind="newProduct.Description"
+        placeholder="Description" />
+    </div>
+
+    <div class="mb-2">
+        <input class="form-control"         
+        type="number" step="0.01"   
+        @bind="newProduct.Price"
+        placeholder="Price" />
+    </div>
+    <button class="btn btn-primary" @onclick="AddProductAsync">Add Product</button>
+</div>
+
+<!-- Products List -->
+@if (products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (products.Count == 0)
+{
+    <p><em>No products available. Add a new product above.</em></p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th class="text-end">Price</th>            
+                <th style="width:140px">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var product in products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                <td>
+                    <button class="btn btn-secondary btn-sm me-1" @onclick="() => EditProduct(product.Id)">Edit</button>
+                    <button class="btn btn-danger btn-sm" @onclick="() => DeleteProductAsync(product.Id)">Delete</button>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+
+
+
+
+@code {
+    private List<Product>? products;
+    private Product newProduct = new Product(); // model for new product form
+
+
+    private void EditProduct(int id)
+    {
+        // Navigate to the Edit page for this product
+        Navigation.NavigateTo($"/products/edit/{id}");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Load all products from API when component initializes
+        products = await Http.GetFromJsonAsync<List<Product>>("api/Products");
+    }
+
+    private async Task AddProductAsync()
+    {
+        // Send newProduct to API
+        var response = await Http.PostAsJsonAsync("api/Products", newProduct);
+        if (response.IsSuccessStatusCode)
+        {
+            var createdProduct = await response.Content.ReadFromJsonAsync<Product>();
+            // Add the created product (with Id) to the list for display
+            products!.Add(createdProduct!);
+            // Reset the newProduct for next entry
+            newProduct = new Product();
+        }
+
+    }
+
+    private async Task DeleteProductAsync(int id)
+    {
+        var response = await Http.DeleteAsync($"api/Products/{id}");
+        if (response.IsSuccessStatusCode)
+        {
+            var productToRemove = products!.FirstOrDefault(p => p.Id == id);
+            if (productToRemove != null)
+                products.Remove(productToRemove);
+        }
+    }
+}

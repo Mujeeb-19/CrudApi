@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36221.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudApi", "CrudApi\CrudApi.csproj", "{8AEF41A8-495E-4F53-B43A-F28C32CBDAB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudAppMaui", "CrudAppMaui\CrudAppMaui.csproj", "{82744DA3-8250-428C-AC0F-633950FCC6DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AEF41A8-495E-4F53-B43A-F28C32CBDAB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AEF41A8-495E-4F53-B43A-F28C32CBDAB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AEF41A8-495E-4F53-B43A-F28C32CBDAB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AEF41A8-495E-4F53-B43A-F28C32CBDAB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82744DA3-8250-428C-AC0F-633950FCC6DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82744DA3-8250-428C-AC0F-633950FCC6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82744DA3-8250-428C-AC0F-633950FCC6DE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{82744DA3-8250-428C-AC0F-633950FCC6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82744DA3-8250-428C-AC0F-633950FCC6DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82744DA3-8250-428C-AC0F-633950FCC6DE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFC1F71F-07BE-4235-9E7D-C9CDC5977D2C}
+	EndGlobalSection
+EndGlobal

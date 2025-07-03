@@ -1,0 +1,67 @@
+###############################################################################
+# Visual Studio / .NET / MAUI Blazor – ignore list
+###############################################################################
+
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.rsuser
+*.sln.docstates
+
+# VS Code settings
+.vscode/
+
+# Visual Studio temporary & cache
+.vs/
+
+# Rider / ReSharper
+.idea/
+*.sln.iml
+.ReSharper*/
+
+# NuGet packages (use 'nuget restore' to recreate)
+**/[Pp]ackages/
+*.nupkg
+*.snupkg
+# (keep a Packages.props/lock.json if you use it)
+
+# dotnet-generated secrets & tools
+secrets.json
+*.pfx
+*.p12
+# dotnet user-secrets
+**/appsettings.Development.json
+
+# EF Core Migrations snapshots are code – keep them
+# (but exclude the generated SQL)
+*Migrations/*.Designer.cs
+*Migrations/*_Create.sql
+
+# MAUI / Xamarin platform artifacts
+**/Platforms/Android/bin/
+**/Platforms/Android/obj/
+**/Platforms/iOS/bin/
+**/Platforms/iOS/obj/
+**/Platforms/MacCatalyst/bin/
+**/Platforms/MacCatalyst/obj/
+**/Platforms/Windows/bin/
+**/Platforms/Windows/obj/
+
+# macOS / Unix cruft
+.DS_Store
+.AppleDouble
+Thumbs.db
+
+# Logs
+*.log
+
+###############################################################################
+# End
+###############################################################################
